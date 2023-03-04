@@ -11,7 +11,10 @@ pipeline {
 
         stage('Tigger the Slave Jobs') {
             steps {
+                props = readJSON file: "${env.WORKSPACE}/data.json"
+
                 echo 'Start Trigger to send name and age to slave'
+                echo props.name
                 build job: 'slave', parameters: [string(name: 'NAME', value: 'Alice'), string(name: 'Ages', value: '21')]
             }
         }
