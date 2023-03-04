@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                sh "python myscript.py ${NAME} --age ${Ages}"
+                sh "python myscript.py ${params.NAME} --age ${params.Ages}"
                 
             }
         }
