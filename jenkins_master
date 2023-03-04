@@ -14,7 +14,7 @@ pipeline {
                 props = readJSON file: "${env.WORKSPACE}/data.json"
 
                 echo 'Start Trigger to send name and age to slave'
-                build job: 'slave', parameters: [string(name: 'NAME', value: "${props.name}"), string(name: 'Ages', value: "${props.name}")]
+                build job: 'slave', parameters: [string(name: 'NAME', value: "$props.name"), string(name: 'Ages', value: "$props.name")]
             }
         }
     }
